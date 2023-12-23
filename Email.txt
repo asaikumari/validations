@@ -1,0 +1,42 @@
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+
+/* E-mail Validation using regex in java*/
+public class Email {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("email:");
+		String email=sc.next();
+		String exp="^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@" 
+		        + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
+		Pattern p=Pattern.compile(exp);
+		Matcher m=p.matcher(email);
+		if(m.matches()) {
+			System.out.println("valid email");
+			
+		}
+		else
+		{
+			System.out.println("not valid email");
+		}
+
+
+	}
+
+}
+
+
+Output:
+email:
+saikumari8@gmail.com
+valid email
+
+
+email:
+Saikumari@gma.com
+not valid email
+
+
